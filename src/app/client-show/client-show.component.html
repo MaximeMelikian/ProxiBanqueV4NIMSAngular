@@ -1,0 +1,36 @@
+
+<div class="card mt-4" >
+
+    <div class="card-body">
+      <h5 class="card-title">{{clientDetails.firstname}} {{clientDetails.lastname}}</h5>
+      
+      
+        <h6 class="card-subtitle" mb-2 text-muted> login </h6>  
+    
+        <p class="card-text">{{clientDetails.adresse}}.</p>
+      
+        <div>
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Identifiant</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{clientDetails.id}}</th>
+                    <td>{{clientDetails.firstname}}</td>
+                    <td>{{clientDetails.lastname}}</td>
+                   
+                  </tr>
+                </tbody>
+              </table>
+              
+        </div>
+
+
+    </div>
+
+</div>

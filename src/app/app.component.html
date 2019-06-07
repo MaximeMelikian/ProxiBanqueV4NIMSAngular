@@ -1,0 +1,32 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h2>
+   Bienvenue dans votre espace personnel ProxiBanque!
+  </h2>
+ 
+</div>
+
+
+<div class="">
+  <div class="row">
+    <div class="col-2" >
+      </div>
+      <div class="col-8" >
+          
+          <a class="btn btn-warning ml-4" routerLinkActive="active" routerLink="/create-client"> Creer un client</a>
+          <a class="btn btn-info ml-4" routerLinkActive="active" routerLink="/client-list"(click)="list=true" >Liste Clients</a>
+            <!-- <a class="btn btn-info ml-3" routerLinkActive="active" routerLink="/client-list"(click)="list=true" *ngIf="!list" >Client List</a> -->
+          <!-- <a class="btn btn-info ml-3" routerLinkActive="active" routerLink="/client-list"(click)="list=false" *ngIf="list" >Client</a> -->
+            <!-- <a class="btn btn-info ml-3" routerLinkActive="active" routerLink="/client-show">Afficher</a> -->
+          <!-- <app-client-show #list *ngIf="!list"></app-client-show> -->
+          <app-client-list *ngIf="list"></app-client-list>
+    </div>
+    <div class="col-4" >
+    </div>
+  </div>
+</div>
+
+<!-- <router-outlet></router-outlet>
+<app-client-list></app-client-list>
+<app-client-edit></app-client-edit>
+<app-client-create></app-client-create> -->

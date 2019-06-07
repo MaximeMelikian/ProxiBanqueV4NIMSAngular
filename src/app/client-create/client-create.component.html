@@ -1,0 +1,77 @@
+<!-- <div class="container custom-container">
+    <div class="col-md-12">
+        <form #mainForm="ngForm">
+            <h3 class="mb-3 text-center">Create Client</h3>
+
+            <div class="form-group">
+                <input type="text" [(ngModel)]="clientDetails.nom" name="nom"  class="form-control" placeholder="Nom">
+
+
+
+                <input type="text" [(ngModel)]="clientDetails.prenom" name="prenom"  class="form-control" placeholder="Prenom">
+
+
+
+                <input type="text" [(ngModel)]="clientDetails.login" name="login"  class="form-control" placeholder="Login">
+
+  
+                    <input type="text" [(ngModel)]="clientDetails.adresse.numero" name="numero"  class="form-control"
+                        placeholder="numero">
+
+
+                    <input type="text" [(ngModel)]="clientDetails.adresse.rue" name="rue"  class="form-control" placeholder="rue">
+
+
+                    <input type="text" [(ngModel)]="clientDetails.adresse.ville" name="ville"  class="form-control"
+                        placeholder="ville">
+
+  
+
+
+                <button class="btn btn-success btn-lg btn-block" (click)="addClient()">Update Client</button>
+            </div>
+        </form>
+    </div>
+</div> -->
+<div class="container custom-container">
+    <div class="col-md-12">
+        <form #mainForm="ngForm">
+            <h3 class="mb-3 text-center">Formulaire de creation d'un nouveau client</h3>
+
+            <div class="form-group">
+                <fieldset>
+                    <label for="lastname">Nom :</label>&nbsp;<input type="text" [(ngModel)]="customerDetails.lastname"
+                        name="lastname" class="form-control" placeholder="Nom">&nbsp;
+
+                    <label for="firstname">Prenom :</label> &nbsp;
+                    <input type="text" [(ngModel)]="clientDetails.firstname" name="firstname" class="form-control"
+                        placeholder="Prénom">&nbsp;
+
+                    <label for="address">Adresse :</label> &nbsp;
+                    <input type="text" [(ngModel)]="clientDetails.address" name="address" class="form-control"
+                        placeholder="Adresse">&nbsp;
+
+                    <label for="postalCode">Code Postal :</label> &nbsp;
+                    <input type="text" [(ngModel)]="clientDetails.postalCode" name="postalCode" class="form-control"
+                        placeholder="Code Postal">&nbsp;
+
+                    <label for="city">Ville :</label> &nbsp;
+                    <input type="text" [(ngModel)]="clientDetails.city" name="city" class="form-control"
+                        placeholder="Ville">&nbsp;
+
+                    <label for="email">Email :</label> &nbsp;
+                    <input type="text" [(ngModel)]="clientDetails.email" name="email" class="form-control"
+                        placeholder="Email">&nbsp;
+
+                    <label for="telephone">Telephone :</label> &nbsp;
+                    <input type="text" [(ngModel)]="clientDetails.telephone" name="telephone" class="form-control"
+                        placeholder="Télephone">&nbsp;
+
+                    <button class="btn btn-success btn-lg btn-block" (click)="addClient()">Valider</button>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block"
+                        (click)="addClient()">Annuler</button>
+                </fieldset>
+            </div>
+        </form>
+    </div>
+</div>

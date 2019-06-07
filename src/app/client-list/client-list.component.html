@@ -1,0 +1,45 @@
+
+
+<h2 class="mb-3 text-center"> La liste des clients </h2>
+
+<div class="card mt-4">
+
+    <div class="card-body">
+        <h5 class="card-title">{{clientDetails.firstname}} {{clientDetails.lastname}}</h5>
+
+
+        <h6 class="card-subtitle" mb-2 text-muted>Conseiller : Tom DUPONT </h6>
+
+        <p class="card-text">{{clientDetails.adresse}}.</p>
+
+        <div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                       <th scope="col">Identifiant</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Nom</th>
+                        
+                  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let  clientDetails of clients">
+                        <th scope="row">{{clientDetails.id}}</th>
+                        <td>{{clientDetails.firstname}}</td>
+                        <td>{{clientDetails.lastname}}</td>
+                         <td>{{clientDetails.telephone}}</td>
+                         <td>{{clientDetails.email}}</td>
+                        <button class="btn btn-info mr-4 " routerLink="/client-show/{{clientDetails.id}}">Afficher</button>
+                            <button class="btn btn-warning mr-4 " routerLink="/client-edit/{{clientDetails.id}}">Modifier</button>
+                                <button class="btn btn-danger mr-4" (click)="deleteClient(clientDetails.id)">Supprimer</button>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+
+</div>
