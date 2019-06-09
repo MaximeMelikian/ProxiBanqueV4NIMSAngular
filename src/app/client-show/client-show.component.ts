@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService } from '../service/client.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ClientService } from '../services/client.service';
 import { Client } from '../model/client';
+import { AccountService } from '../services/account.service';
+import { Account } from '../model/account';
 
 @Component({
     selector: 'app-client-show',
@@ -12,15 +13,44 @@ import { Client } from '../model/client';
 export class ClientShowComponent implements OnInit {
 
 
-   id = this.activateRoute.snapshot.params['id'];
+    id: number;
     clientDetails: Client;
+    accounts: Account[];
+    showDetail: boolean;
+    update: boolean = true;
+    date: Date = new Date();
 
-    constructor(private service: ClientService, private activateRoute: ActivatedRoute, private router: Router, private http: HttpClient) { }
+    constructor(private service: ClientService, private activatedRoute: ActivatedRoute, private router: Router, private accountService: AccountService) {
+        this.id = this.activatedRoute.snapshot.params['id'];
+    }
 
     ngOnInit() {
-        this.http.get("http://localhost:8080/myapp/customers/1").subscribe(
-            (data: Client) =>{
-this.clientDetails = data;
+        this.id = this.activatedRoute.snapshot.params['id'];
+        this.service.getClient(this.id).subscribe((data: Client) => {
+            this.clientDetails = data;
+        })
+    }
+
+    gotoList() {
+        this.router.navigate(['/clients-list']);
+        return false;
+    }
+    getCustomerAcount(id: number) {
+        this.accountService.getCustomerAccount(id).subscribe(
+            (data: Account[]) => {
+                this.accounts = data;
+                console.log(this.accounts);
+                this.showDetail = this.showDetail ? false : true;
+            }
+        );
+    }
+
+    saveUpdatedCustomer(customer: Client) {
+        this.update = true;
+        console.log(customer);
+        this.service.updateClient(customer).subscribe(
+            (data: any )=> {
+                console.log(data);
             }
         );
     }

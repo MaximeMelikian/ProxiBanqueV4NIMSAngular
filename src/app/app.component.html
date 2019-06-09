@@ -1,32 +1,11 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h2>
-   Bienvenue dans votre espace personnel ProxiBanque!
-  </h2>
- 
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm" 
+style="box-shadow: 10px 5px 5px lightslategray">
+  
+  <h4 class="my-0 mr-md-auto font-weight-normal">ProxiBanque</h4>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="btn btn-warning" routerLinkActive="active" routerLink="/create-client">Creer client</a>
+  </nav>
+  <a class="btn btn-info" routerLinkActive="active" routerLink="/clients-list">Liste des clients</a>
 </div>
 
-
-<div class="">
-  <div class="row">
-    <div class="col-2" >
-      </div>
-      <div class="col-8" >
-          
-          <a class="btn btn-warning ml-4" routerLinkActive="active" routerLink="/create-client"> Creer un client</a>
-          <a class="btn btn-info ml-4" routerLinkActive="active" routerLink="/client-list"(click)="list=true" >Liste Clients</a>
-            <!-- <a class="btn btn-info ml-3" routerLinkActive="active" routerLink="/client-list"(click)="list=true" *ngIf="!list" >Client List</a> -->
-          <!-- <a class="btn btn-info ml-3" routerLinkActive="active" routerLink="/client-list"(click)="list=false" *ngIf="list" >Client</a> -->
-            <!-- <a class="btn btn-info ml-3" routerLinkActive="active" routerLink="/client-show">Afficher</a> -->
-          <!-- <app-client-show #list *ngIf="!list"></app-client-show> -->
-          <app-client-list *ngIf="list"></app-client-list>
-    </div>
-    <div class="col-4" >
-    </div>
-  </div>
-</div>
-
-<!-- <router-outlet></router-outlet>
-<app-client-list></app-client-list>
-<app-client-edit></app-client-edit>
-<app-client-create></app-client-create> -->
+<router-outlet class="pb-5"></router-outlet>

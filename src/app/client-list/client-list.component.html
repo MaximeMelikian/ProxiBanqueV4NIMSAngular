@@ -1,45 +1,40 @@
+<div class="container custom-container-2 card">
 
+  
+    <div class="no-data text-center" *ngIf="client.length == 0">
+    <p>There is no client added yet!</p>
+    <button class="btn btn-outline-primary" routerLink="/create-client">Add client</button>
+  </div>
 
-<h2 class="mb-3 text-center"> La liste des clients </h2>
+  <div *ngIf="client.length !== 0">
+    <h3 class="mb-3 text-center">Clients List</h3>
 
-<div class="card mt-4">
-
-    <div class="card-body">
-        <h5 class="card-title">{{clientDetails.firstname}} {{clientDetails.lastname}}</h5>
-
-
-        <h6 class="card-subtitle" mb-2 text-muted>Conseiller : Tom DUPONT </h6>
-
-        <p class="card-text">{{clientDetails.adresse}}.</p>
-
-        <div>
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                       <th scope="col">Identifiant</th>
-                        <th scope="col">Prenom</th>
-                        <th scope="col">Nom</th>
-                        
-                  
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let  clientDetails of clients">
-                        <th scope="row">{{clientDetails.id}}</th>
-                        <td>{{clientDetails.firstname}}</td>
-                        <td>{{clientDetails.lastname}}</td>
-                         <td>{{clientDetails.telephone}}</td>
-                         <td>{{clientDetails.email}}</td>
-                        <button class="btn btn-info mr-4 " routerLink="/client-show/{{clientDetails.id}}">Afficher</button>
-                            <button class="btn btn-warning mr-4 " routerLink="/client-edit/{{clientDetails.id}}">Modifier</button>
-                                <button class="btn btn-danger mr-4" (click)="deleteClient(clientDetails.id)">Supprimer</button>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
-
-
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col"> Id</th>
+            <th scope="col">firstname</th>
+            <th scope="col">lastname</th>
+            <th scope="col">telephone</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of client" (click)="clientSelected(c.id)">
+            <td>{{c.id}}</td>
+            <td>{{c.firstname}}</td>
+            <td>{{c.lastname}}</td>
+            <td>{{c.telephone}}</td>
+            <td >       
+              <button class="btn btn-info mr-1" routerLink="/client-show/{{c.id}}">Show</button>
+              <button class="btn btn-danger" (click)="deleteClient(c.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+  </div>
 
 </div>

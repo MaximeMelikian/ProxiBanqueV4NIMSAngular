@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClientService } from '../service/client.service';
+import { ClientService } from '../services/client.service';
 import { Client } from '../model/client';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-client-create',
@@ -15,30 +14,19 @@ export class ClientCreateComponent implements OnInit {
     clientDetails = new Client();
 
 
-   // constructor(
-        //public service: ClientService,
-       // public router: Router
-  //  ) {
-        // this.clientDetails.adresse = new Adresse();
-   // }
+    constructor(
+        public service: ClientService,
+        public router: Router
+    ) {
 
-  ngOnInit() {}  
- // addClient(dataClient) {
-   //this.service.createClient(this.clientDetails).subscribe((data: {}) => {
-   //    this.router.navigate(['/clients-list']);
-// });
-  // }
-//ngOnInit() {
-      //  this.http.post("http://localhost:8080/myapp/customers").subscribe(
-       //     (data: Client[]) =>{
-//this.clients=data;
-         //   }
-        //);
-  
-        
-       
-        
     }
 
+    ngOnInit() { }
 
+    addClient() {
+        this.service.createClient(this.clientDetails).subscribe((data: {}) => {
+            this.router.navigate(['/clients-list']);
+        });
+    }
 
+}
