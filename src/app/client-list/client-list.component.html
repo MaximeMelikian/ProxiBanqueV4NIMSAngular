@@ -3,20 +3,20 @@
   
     <div class="no-data text-center" *ngIf="client.length == 0">
     <p>There is no client added yet!</p>
-    <button class="btn btn-outline-primary" routerLink="/create-client">Add client</button>
+    <button class="btn btn-outline-primary" routerLink="/create-client">Nouveau Client</button>
   </div>
 
   <div *ngIf="client.length !== 0">
-    <h3 class="mb-3 text-center">Clients List</h3>
+    <h3 class="mb-3 text-center">Liste des clients</h3>
 
     <div class="col-md-12">
       <table class="table table-bordered">
         <thead>
           <tr>
             <th scope="col"> Id</th>
-            <th scope="col">firstname</th>
-            <th scope="col">lastname</th>
-            <th scope="col">telephone</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Telephone</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -27,8 +27,8 @@
             <td>{{c.lastname}}</td>
             <td>{{c.telephone}}</td>
             <td >       
-              <button class="btn btn-info mr-1" routerLink="/client-show/{{c.id}}">Show</button>
-              <button class="btn btn-danger" (click)="deleteClient(c.id)">Delete</button>
+              <button class="btn btn-info mr-1" routerLink="/client-show/{{c.id}}">Afficher</button>
+              <button class="btn btn-danger" (click)="deleteClient(c.id)">Supprimer</button>
             </td>
           </tr>
         </tbody>

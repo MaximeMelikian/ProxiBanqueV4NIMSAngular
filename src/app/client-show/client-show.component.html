@@ -14,14 +14,14 @@
       </div>
 
       <div class="form-group row" *ngIf="update">
-        <label for="" class=" col-3 col-form-label">Address :</label>
+        <label for="" class=" col-3 col-form-label">Adresse :</label>
         <div class="col-sm-9">
           <input type="text" [readonly]='update' class="form-control"
             value="{{clientDetails.address}} {{clientDetails.city}} {{clientDetails.postalCode}}">
         </div>
       </div>
       <div *ngIf="!update" class=" form-group row">
-        <label for="" class=" col-3 col-form-label">Address :</label>
+        <label for="" class=" col-3 col-form-label">Adresse :</label>
         <div class="col">
           <input type="text" class="form-control" value="{{clientDetails.address}}" [(ngModel)]="clientDetails.address">
         </div>
@@ -42,9 +42,9 @@
         </div>
       </div>
       <div class="row mb-5">
-        <a *ngIf="update;else save" class="btn btn-info" (click)="update=false">Update this Customer</a>
+        <a *ngIf="update;else save" class="btn btn-info" (click)="update=false">Modifier le client </a>
         <ng-template #save>
-          <a class="btn btn-info" (click)="saveUpdatedCustomer(clientDetails)">Save this Customer</a>
+          <a class="btn btn-info" (click)="saveUpdatedCustomer(clientDetails)">Enregistrer le client</a>
         </ng-template>
 
 
@@ -55,11 +55,11 @@
         <div class="row mb-2">
 
           <div class="col">
-              <h4>Account Details : </h4>
+              <h4>Informations du compte : </h4>
   
           </div>
           <div class="col ">
-              <button class="btn btn-warning mr-1 right" routerLink="/account-transfer/{{clientDetails.id}}">transfert</button>
+              <button class="btn btn-warning mr-1 right" routerLink="/account-transfer/{{clientDetails.id}}">Virement</button>
   
           </div>
         </div>
@@ -71,9 +71,9 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th scope="col">Account Number</th>
-                <th scope="col">Account Balance</th>
-                <th scope="col">Date Of Creation</th>
+                <th scope="col">Numero de Compte</th>
+                <th scope="col">Solde</th>
+                <th scope="col">Date de creation</th>
               </tr>
               
             </thead>
@@ -93,8 +93,8 @@
 
       </div>
       <div class="row">
-        <a class="btn btn-info" (click)="gotoList()">Back to client list</a>
-        <a class="btn btn-info ml-4" (click)="getCustomerAcount(clientDetails.id)">Show Account</a>
+        <a class="btn btn-info" (click)="gotoList()">Retour liste des clients</a>
+        <a class="btn btn-info ml-4" (click)="getCustomerAcount(clientDetails.id)">Voir compte</a>
       </div>
     </div>
 
